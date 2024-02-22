@@ -1,8 +1,8 @@
 # QuEStVar Manuscript Analysis
 
-| **`Status`** | **`License`** | **`Language`** | **`Release`** | **`DOI`** |  **`Citation`** |
+| **`Status`** | **`License`** | **`Language`** | **`Release`** | **`Zenodo`** |  **`Citation`** |
 |----------------|----------------|----------------|----------------|----------------| ----------------|
-| ![Status](https://img.shields.io/badge/Status-Under_Development-red) | ![License](https://img.shields.io/badge/License-MIT-blue) | ![Language](https://img.shields.io/badge/Language-Python-yellow) | ![Release](https://img.shields.io/badge/Release-v1.0.0-green) | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4740735.svg)](https://github.com/LangeLab/Analysis_of_QuEStVar_Manuscript) | [![Citation](https://img.shields.io/badge/Citation-Not_Available-lightgrey)](https://github.com/LangeLab/Analysis_of_QuEStVar_Manuscript) |
+| ![Status](https://img.shields.io/badge/Status-Under_Development-red) | ![License](https://img.shields.io/badge/License-MIT-blue) | ![Language](https://img.shields.io/badge/Language-Python-yellow) | ![Release](https://img.shields.io/badge/Release-v1.0.0-green) | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10694635.svg)](https://doi.org/10.5281/zenodo.10694635) | [![Citation](https://img.shields.io/badge/Citation-Not_Available-lightgrey)](https://github.com/LangeLab/Analysis_of_QuEStVar_Manuscript) |
 
 This repository contains the code and data supporting the manuscript "Statistical Testing for Protein Equivalence Identifies Core Functional Modules Conserved Across 360 Cancer Cell Lines and Presents a General Approach to Investigating Biological Systems". Here, you'll find the scripts and Jupyter Notebooks used for:
 
