@@ -1,0 +1,15 @@
+python==3.9.18
+jupyter==3.5.3
+pandas==1.5.2
+numpy==1.24.3
+matplotlib==3.7.2
+seaborn==0.11.2
+scipy==1.10.1
+feather-format==0.4.1
+gprofiler-official==1.0.0  # Updated package name
+biopython==1.81
+polars==0.18.1
+scikit-learn==1.1.1
+PyComplexHeatmap==1.6.4
+upsetplot==0.7.0
+session_info==1.0.0
