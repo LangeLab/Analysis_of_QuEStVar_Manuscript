@@ -578,7 +578,7 @@ def multiple_testing_correction(
                 pvalue, i = vals
                 qvalues[i] = (sample_size-rank) * pvalue
 
-        elif correction_type == "fdr":
+        elif correction_type == "fdr" or correction_type == "fdr_bh":
             by_descend = pvalues.argsort()[::-1]
             by_orig = by_descend.argsort()
             steps = float(len(pvalues)) / np.arange(len(pvalues), 0, -1)
@@ -746,7 +746,7 @@ def equivalence_percent(
         pThr: float=0.05, 
         eqThr: float=1.0, 
         correction: str='fdr'
-    ):
+    ) -> float:
 
     """
         Calculates the equivalence percent value between two samples.
@@ -802,3 +802,172 @@ def equivalence_percent(
     #  how the total is calculated. 
 
     return np.sum(tost_pval < pThr) / len(tost_pval)
+
+def difference_percent(
+        data: pd.DataFrame, 
+        s1_cols: list[str], 
+        s2_cols: list[str], 
+        pThr: float=0.05, 
+        dfThr: float=1.0, 
+        correction: str='fdr'
+    ) -> float:
+
+    """
+        Calculates the difference percent value between two samples.
+    """
+
+    # TODO: Make this function use the same bases as the main testing suite
+    # WARNING: At this point this is only used and tested for simulation.
+
+    # Get the values of the two dataframes
+    S1_arr = data[s1_cols].values
+    S2_arr = data[s2_cols].values
+
+    # Calculate sample sizes for each protein in each sample
+    n1 = S1_arr.shape[1] - np.sum(np.isnan(S1_arr), axis=1)
+    n2 = S2_arr.shape[1] - np.sum(np.isnan(S2_arr), axis=1)
+
+    # Calculate useful statistics to use in tests
+    m1, m2 = np.nanmean(S1_arr, axis=1), np.nanmean(S2_arr, axis=1)
+    v1, v2 = np.nanvar(S1_arr, axis=1, ddof=1), np.nanvar(S2_arr, axis=1, ddof=1)
+
+    # Calculate the t-test p-value
+    ttest_pval = ttest_ind_with_na(
+        m1, 
+        m2, 
+        v1, 
+        v2, 
+        n1, 
+        n2, 
+        equal_var=True,
+        alternative='two-sided'
+    )[1]
+
+    # Apply multiple testing correction
+    ttest_pval_corr = multiple_testing_correction(
+        ttest_pval,
+        correction_type=correction,
+        sample_size=None
+    )
+
+    return np.sum(
+        (ttest_pval_corr < pThr) & (np.abs(m1 - m2) > dfThr)
+    ) / len(ttest_pval_corr)
+
+def run_test(
+        # two samples
+        S1_arr: np.ndarray,
+        S2_arr: np.ndarray,
+        is_log2: bool = False,
+        # Thresholds
+        cv_thr: float=0.15,
+        p_thr: float=0.05,
+        df_thr: float=1,
+        eq_thr: float=0.5,
+        var_equal: bool=False,
+        is_paired: bool=False,
+        correction: str='fdr',
+    ) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """
+       Run's QuEStVar's testing of a given pair from directly two np.ndarrays, applies the framework and 
+       returns the result dataframes. This is used mainly for benchmarking and testing purposes.
+    """
+
+    ## Logical checks
+    # Logically check the input parameters
+    if df_thr < eq_thr:
+        raise ValueError(
+            """The equivalence boundary must be smaller 
+            than the difference boundary (logFC cutoff)!"""
+        )
+    # Check if the passed correction is valid
+    if correction not in ['bonferroni', 'holm','fdr', 'qvalue', None]:
+        raise ValueError(
+            """Invalid correction method, 
+            must be one of 'bonferroni', 'holm','fdr', 'qvalue'!"""
+        )
+    # Check if the variables passed for variance and paired are logical
+    if is_paired and (not var_equal):
+        raise ValueError(
+            """Paired test cannot be done without equal variance!"""
+        )
+    # Ensure both arrays have enough replicates
+    if S1_arr.shape[1] < 2 or S2_arr.shape[1] < 2:
+        raise ValueError(
+            """Both samples must have at least 2 replicates!"""
+        )
+
+    # Get index to keep track of proteins
+    proteins = np.arange(S1_arr.shape[0])
+
+    # Get the coefficient of variation for each protein
+    S1_arr_cv = utils.cv_numpy(S1_arr, axis=1)
+    S2_arr_cv = utils.cv_numpy(S2_arr, axis=1)
+
+    # Make the protein selection indicator array
+    S1_arr_ps = utils.make_protein_selection_indicator(S1_arr_cv, cv_thr)
+    S2_arr_ps = utils.make_protein_selection_indicator(S2_arr_cv, cv_thr)
+
+    # Sum S1 and S2 indicator arrays for selection
+    # -2, -1, 0 <- wont be selected
+    # TODO: Adding simple low-value imputation
+    # 1 <- S1 or S2 can be imputed - select if imputation allowed
+    # 2 <- No processing necessary - selected
+    S_arr_ps = S1_arr_ps + S2_arr_ps
+
+    # Get the index for 1 (Ms+Qn) and 2s (Qn+Qn)
+    subidx = np.where(S_arr_ps >= 2)[0]
+
+    # Subset the dataframes to the shared index
+    S1_arr_ready = S1_arr[subidx]
+    S2_arr_ready = S2_arr[subidx]
+    
+    # Log2 transform the data if necessary
+    if not is_log2:
+        S1_arr_ready = np.log2(S1_arr_ready)
+        S2_arr_ready = np.log2(S2_arr_ready)
+
+    # Run the tests
+    if is_paired:
+        # If the test is paired, then run the paired test
+        res = run_paired(
+            S1_arr_ready,
+            S2_arr_ready,
+            pThr=p_thr,
+            dfThr=df_thr,
+            eqThr=eq_thr,
+            correction=correction
+        )
+    else:
+        # If the test is unpaired, then run the unpaired test
+        res = run_unpaired(
+            S1_arr_ready,
+            S2_arr_ready,
+            pThr=p_thr,
+            dfThr=df_thr,
+            eqThr=eq_thr,
+            equalVar=var_equal,
+            correction=correction
+        )
+
+    status_all = np.zeros(len(proteins)) * np.nan
+    status_all[subidx] = res[:, -1]
+
+    # Create a dataframe from the results
+    res_df = pd.DataFrame(
+        res,
+        columns=COLS,
+        index=proteins[subidx]
+    )
+
+    # Create a info dataframe
+    info_df = pd.DataFrame(
+        {
+            "Protein": proteins,
+            "S1_Status": S1_arr_ps,
+            "S2_Status": S2_arr_ps, 
+            "Status": status_all, 
+        }
+    )
+
+    return res_df, info_df
