@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="420"
+   height="180"
+   viewBox="0 0 420 180"
+   fill="none"
+   version="1.1"
+   id="svg12"
+   sodipodi:docname="logo-readme.svg"
+   inkscape:version="1.4.4 (dcaf3e7d9e, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview12"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="4.3904762"
+     inkscape:cx="169.00217"
+     inkscape:cy="98.62256"
+     inkscape:window-width="3840"
+     inkscape:window-height="2089"
+     inkscape:window-x="2160"
+     inkscape:window-y="34"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg12" />
+  <defs
+     id="defs6">
+    <linearGradient
+       id="bg"
+       x1="48"
+       y1="26"
+       x2="354"
+       y2="154"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#ECFDF5"
+         id="stop1" />
+      <stop
+         offset="1"
+         stop-color="#FEF3C7"
+         id="stop2" />
+    </linearGradient>
+    <linearGradient
+       id="ring"
+       x1="92"
+       y1="45"
+       x2="189"
+       y2="131"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-20)">
+      <stop
+         stop-color="#0F766E"
+         id="stop3" />
+      <stop
+         offset="1"
+         stop-color="#0EA5E9"
+         id="stop4" />
+    </linearGradient>
+    <linearGradient
+       id="bars"
+       x1="220"
+       y1="58"
+       x2="317"
+       y2="126"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#0F766E"
+         id="stop5" />
+      <stop
+         offset="1"
+         stop-color="#F59E0B"
+         id="stop6" />
+    </linearGradient>
+  </defs>
+  <rect
+     x="26"
+     y="20"
+     width="368"
+     height="140"
+     rx="28"
+     fill="url(#bg)"
+     id="rect6" />
+  <rect
+     x="26.75"
+     y="20.75"
+     width="366.5"
+     height="138.5"
+     rx="27.25"
+     stroke="#D1FAE5"
+     stroke-width="1.5"
+     id="rect7" />
+  <g
+     id="g15"
+     transform="translate(-0.34381963,4)">
+    <g
+       id="g14"
+       transform="translate(-2.9609544,-4)">
+      <circle
+         cx="110"
+         cy="90"
+         r="42"
+         stroke="url(#ring)"
+         stroke-width="14"
+         id="circle7"
+         style="stroke:url(#ring)" />
+      <path
+         d="m 62.815618,132.9501 23,-23"
+         stroke="#0f172a"
+         stroke-width="12"
+         stroke-linecap="round"
+         id="path7" />
+      <circle
+         cx="110"
+         cy="90"
+         r="15"
+         fill="#0f172a"
+         id="circle8" />
+    </g>
+    <g
+       id="g13"
+       transform="translate(-2.9609544)">
+      <g
+         id="g12"
+         transform="translate(-3.3417611)">
+        <rect
+           x="225"
+           y="56"
+           width="18"
+           height="54"
+           rx="9"
+           fill="url(#bars)"
+           id="rect8"
+           style="fill:url(#bars)" />
+        <rect
+           x="252"
+           y="44"
+           width="18"
+           height="78"
+           rx="9"
+           fill="#0f766e"
+           opacity="0.92"
+           id="rect9" />
+        <rect
+           x="279"
+           y="64"
+           width="18"
+           height="38"
+           rx="9"
+           fill="#f59e0b"
+           opacity="0.9"
+           id="rect10" />
+        <rect
+           x="306"
+           y="50"
+           width="18"
+           height="66"
+           rx="9"
+           fill="#0ea5e9"
+           opacity="0.92"
+           id="rect11" />
+      </g>
+      <path
+         d="m 212.15824,126 h 118"
+         stroke="#0f172a"
+         stroke-width="4"
+         stroke-linecap="round"
+         opacity="0.18"
+         id="path11" />
+      <text
+         x="195.92191"
+         y="95"
+         fill="#0f172a"
+         font-family="Verdana, 'DejaVu Sans', sans-serif"
+         font-size="28px"
+         font-weight="700"
+         id="text11">QuEStVar</text>
+      <text
+         x="171.31648"
+         y="118"
+         fill="#334155"
+         font-family="Verdana, 'DejaVu Sans', sans-serif"
+         font-size="13px"
+         font-weight="600"
+         letter-spacing="1.2"
+         id="text12">MANUSCRIPT ANALYSIS</text>
+    </g>
+  </g>
+</svg>

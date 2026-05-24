@@ -1,0 +1,35 @@
+cff-version: 1.2.0
+message: "If you use this manuscript analysis repository, please cite the published article listed below."
+title: "Analysis of QuEStVar Manuscript"
+abstract: "Code, notebooks, and reproducible workflows supporting the published QuEStVar manuscript analysis archive."
+type: software
+license: MIT
+url: "https://github.com/LangeLab/Analysis_of_QuEStVar_Manuscript"
+repository-code: "https://github.com/LangeLab/Analysis_of_QuEStVar_Manuscript"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.10694635"
+authors:
+  - family-names: "Ergin"
+    given-names: "Enes K."
+  - family-names: "Myung"
+    given-names: "Junia J. K."
+  - family-names: "Lange"
+    given-names: "Philipp F."
+preferred-citation:
+  type: article
+  authors:
+    - family-names: "Ergin"
+      given-names: "Enes K."
+    - family-names: "Myung"
+      given-names: "Junia J. K."
+    - family-names: "Lange"
+      given-names: "Philipp F."
+  title: "Statistical Testing for Protein Equivalence Identifies Core Functional Modules Conserved across 360 Cancer Cell Lines and Presents a General Approach to Investigating Biological Systems"
+  journal: "Journal of Proteome Research"
+  year: 2024
+  volume: 23
+  issue: 6
+  start: 2169
+  end: 2185
+  doi: "10.1021/acs.jproteome.4c00131"
