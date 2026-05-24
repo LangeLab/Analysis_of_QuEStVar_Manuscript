@@ -8,21 +8,24 @@
 </p>
 
 <p align="center">
+    Code, notebooks, and reproducible workflows for the QuEStVar manuscript and published analysis archive.
+</p>
+
+<p align="center">
     <a href="https://pubs.acs.org/doi/10.1021/acs.jproteome.4c00131"><img src="https://img.shields.io/badge/paper-J._Proteome_Research_2024-0f766e?style=for-the-badge" alt="Journal of Proteome Research 2024" /></a>
     <a href="https://doi.org/10.1021/acs.jproteome.4c00131"><img src="https://img.shields.io/badge/doi-10.1021%2Facs.jproteome.4c00131-0ea5e9?style=for-the-badge" alt="DOI 10.1021/acs.jproteome.4c00131" /></a>
-    <a href="https://doi.org/10.5281/zenodo.10694635"><img src="https://img.shields.io/badge/data-Zenodo-2563eb?style=for-the-badge" alt="Zenodo" /></a>
-    <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-f59e0b?style=for-the-badge" alt="License MIT" /></a>
+        <a href="https://doi.org/10.5281/zenodo.10694635"><img src="https://img.shields.io/badge/data-Zenodo-2563eb?style=for-the-badge" alt="Zenodo" /></a>
 </p>
 
 <p align="center">
+        <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-f59e0b?style=for-the-badge" alt="License MIT" /></a>
     <img src="https://img.shields.io/badge/python-3.9.18-0f172a?style=for-the-badge&logo=python&logoColor=white" alt="Python 3.9.18" />
     <img src="https://img.shields.io/badge/notebooks-Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white" alt="Jupyter notebooks" />
-    <a href="https://github.com/eneskemalergin/QuEStVar/releases/tag/v0.1.0"><img src="https://img.shields.io/badge/standalone_package-v0.1.0-16a34a?style=for-the-badge" alt="Standalone package v0.1.0" /></a>
-    <a href="https://pypi.org/project/questvar/"><img src="https://img.shields.io/badge/PyPI-questvar-1d4ed8?style=for-the-badge&logo=pypi&logoColor=white" alt="PyPI questvar" /></a>
 </p>
 
 <p align="center">
-    Code, notebooks, and reproducible workflows for the QuEStVar manuscript and published analysis archive.
+    <a href="https://github.com/eneskemalergin/QuEStVar/releases/tag/v0.1.0"><img src="https://img.shields.io/badge/standalone_package-v0.1.0-16a34a?style=for-the-badge" alt="Standalone package v0.1.0" /></a>
+    <a href="https://pypi.org/project/questvar/"><img src="https://img.shields.io/badge/PyPI-questvar-1d4ed8?style=for-the-badge&logo=pypi&logoColor=white" alt="PyPI questvar" /></a>
 </p>
 
 <p align="center">
